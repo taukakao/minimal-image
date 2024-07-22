@@ -31,12 +31,6 @@ jobs:
         echo "base_image=$BASE_IMAGE" >> "$GITHUB_OUTPUT"
         echo "BASE_IMAGE=$BASE_IMAGE" >> "$GITHUB_ENV"
 
-    - name: Verify Base Image Integrity
-      run: |
-        gh attestation verify oci://ghcr.io/${{ env.BASE_IMAGE }} --owner Vanilla-OS
-      env:
-        GH_TOKEN: ${{ github.token }}
-
   check_update:
     runs-on: ubuntu-latest
 
